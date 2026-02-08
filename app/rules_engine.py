@@ -76,14 +76,10 @@ def apply_rules(payload: Dict[str, Any], rules: Optional[Iterable[Any]] = None) 
     
     hits: List[RuleHit] = []
 
-    amount = _to_decimal(payload.get("amount"))
     country = _to_upper(payload.get("country"))
     channel = _to_upper(payload.get("channel"))
-    category = _to_upper(payload.get("category"))
     merchant = _to_str(payload.get("merchant"))
-    merchant_id = _to_upper(payload.get("merchant_id") or payload.get("merchantId"))
     event_time = _parse_iso_datetime(payload.get("event_time") or payload.get("occurred_at"))
-
 
     if rules:
         for rule in rules:
