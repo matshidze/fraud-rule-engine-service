@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fraud-app-config
+  namespace: fraud
+data:
+  FLASK_ENV: "production"
+  FRAUD_SCORE_THRESHOLD: "60"

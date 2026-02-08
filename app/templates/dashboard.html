@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Fraud Rule Engine Dashboard</h1>
+<div class="cards">
+  <div class="card">Total transactions: <b>{{ total }}</b></div>
+  <div class="card">Flagged alerts: <b>{{ flagged }}</b></div>
+</div>
+
+<h2>Latest</h2>
+<table>
+  <tr><th>ID</th><th>Customer</th><th>Category</th><th>Amount</th><th>Score</th><th>Flagged</th></tr>
+  {% for t in latest %}
+  <tr>
+    <td>{{ t.id }}</td>
+    <td>{{ t.customer_id }}</td>
+    <td>{{ t.category }}</td>
+    <td>{{ t.amount }}</td>
+    <td>{{ t.fraud_score }}</td>
+    <td>{{ "YES" if t.is_flagged else "NO" }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
