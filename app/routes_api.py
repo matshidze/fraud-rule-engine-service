@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from .extensions import db
+#from .extensions import db
 from .models import Transaction, RuleHit
 from .schemas import TransactionInSchema, TransactionOutSchema, RuleHitSchema
 from .services import process_transaction
