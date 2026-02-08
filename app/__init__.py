@@ -6,7 +6,6 @@ from .extensions import db
 
 
 def _env(key: str, default: str) -> str:
-    """Small helper to read env vars with defaults."""
     val = os.getenv(key)
     return val if val is not None and val != "" else default
 
@@ -47,5 +46,7 @@ def create_app() -> Flask:
 
     with app.app_context():
         db.create_all()
+        from .services import ensure_seed_rules
+        ensure_seed_rules()
 
     return app
